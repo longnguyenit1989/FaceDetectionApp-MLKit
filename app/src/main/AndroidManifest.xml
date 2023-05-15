@@ -24,7 +24,7 @@
         </activity>
 
         <activity
-            android:name=".facedetector.FaceDetectionActivity"
+            android:name=".camera.CameraActivity"
             android:exported="true"/>
     </application>
 

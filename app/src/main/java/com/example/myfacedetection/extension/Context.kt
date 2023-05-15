@@ -13,7 +13,7 @@ fun Context.showDialogCameraPermissionRequest(positive: () -> Unit) {
     AlertDialog.Builder(this)
         .setTitle("Camera Permission Required")
         .setMessage("Without accessing the camera it is not possible to Face Detection...")
-        .setPositiveButton("Allow Camera") { dialogf                                                                                                                                                                                                                                , which ->
+        .setPositiveButton("Allow Camera") { dialog                                                                                                                                                                                                                            , which ->
             positive.invoke()
         }.setNegativeButton("Cancel") { dialog, which ->
 
