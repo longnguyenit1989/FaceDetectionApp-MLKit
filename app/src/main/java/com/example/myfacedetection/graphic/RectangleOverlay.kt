@@ -11,7 +11,7 @@ class RectangleOverlay(
     private val overlay: GraphicOverlay<*>,
     private val face: Face,
     private val rect: Rect
-) : GraphicOverlay.Graphic(overlay) {
+) : GraphicOverlay.Graphic() {
 
     private val boxPaint: Paint = Paint()
 
