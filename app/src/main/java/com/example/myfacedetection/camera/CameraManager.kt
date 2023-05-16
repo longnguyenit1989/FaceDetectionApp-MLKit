@@ -75,7 +75,6 @@ class CameraManager(
     fun changeCamera() {
         cameraStop()
         cameraOption = if (cameraOption == CameraSelector.LENS_FACING_BACK) CameraSelector.LENS_FACING_FRONT else CameraSelector.LENS_FACING_BACK
-        CameraUtils.toggleSelector()
         cameraStart()
     }
 

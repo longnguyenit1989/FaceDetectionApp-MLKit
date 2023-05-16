@@ -4,6 +4,7 @@ import android.content.res.Configuration
 import android.graphics.Rect
 import android.graphics.RectF
 import androidx.camera.core.CameraSelector
+import com.example.myfacedetection.camera.CameraManager
 import com.example.myfacedetection.graphic.GraphicOverlay
 import kotlin.math.ceil
 
@@ -11,7 +12,6 @@ object CameraUtils {
     private var mScale: Float? = null
     private var mOffsetX: Float? = null
     private var mOffsetY: Float? = null
-    private var cameraSelector: Int = CameraSelector.LENS_FACING_FRONT
 
     fun calculateRect(
         overlay: GraphicOverlay<*>,
@@ -57,7 +57,7 @@ object CameraUtils {
             bottom = boundingBoxT.bottom * scale + offsetY
         }
 
-        if (isFrontMode()) {
+        if (isFrontCamera()) {
             val centerX = overlay.width.toFloat() / 2
             mappedBox.apply {
                 left = centerX + (centerX - left)
@@ -68,12 +68,6 @@ object CameraUtils {
         return mappedBox
     }
 
-    private fun isFrontMode() = cameraSelector == CameraSelector.LENS_FACING_FRONT
-
-    fun toggleSelector() {
-        cameraSelector =
-            if (cameraSelector == CameraSelector.LENS_FACING_BACK) CameraSelector.LENS_FACING_FRONT else CameraSelector.LENS_FACING_BACK
-    }
-
+    private fun isFrontCamera() = CameraManager.cameraOption == CameraSelector.LENS_FACING_FRONT
 
 }
